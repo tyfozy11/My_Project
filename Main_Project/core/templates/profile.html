@@ -1,0 +1,16 @@
+{% extends 'master.html' %}
+{% load bootstrap4 %}
+{% block content %}
+<h1>Profile</h1>
+<br>
+<table class="table">
+    <tr>
+        <td>Login</td>
+        <td>{{ user.username }}
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td>{{ user.email }}
+    </tr>
+</table>
+{% endblock content %}
