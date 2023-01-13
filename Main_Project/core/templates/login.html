@@ -1,0 +1,20 @@
+{% extends 'master.html' %}
+{% load bootstrap4 %}
+
+{% block brand %}Аутентифікація{% endblock %}
+
+{% block content %}
+ <form method="post">{% csrf_token%}
+     <table>
+     {% bootstrap_form form %}
+     <br>
+        <tr>
+            <td>
+            <br>
+               <a href="{% url 'home' %}" class="badge badge-pill badge-success">Увійти</a>
+            </td>
+        </tr>
+     </table>
+ </form>
+
+{% endblock content %}

@@ -28,4 +28,4 @@ class Dish(Name):
 
 
 class FoodCategories(Name):
-    pass
+    image = models.ImageField(blank=True, null=True, upload_to=dish_upload_path)

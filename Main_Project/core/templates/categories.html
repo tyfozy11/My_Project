@@ -1,0 +1,35 @@
+{% extends 'master.html' %}
+{% block brand %}Категорії{% endblock %}
+{% block content %}
+<div class="card-deck" style="margin-top: 60px; margin-bottom: 20px; ">
+      {% for category in object_list %}
+     <div class="col-md-4">
+          <div class="card" style="margin-bottom: 15px; background-color:#48414394;">
+            <img src="{{category.image.url}}" width="320" height="200"  class="card-img-top">
+                <div class="card-body">
+                  <h3 class="card-title" style="color: #d5eee8;">{{category.name}}</h3>
+                </div>
+                      <div class="card-footer">
+                          <a href="{% url 'dishes_from_category' category_id=category.id %}" class="badge badge-pill badge-success"  style="height: 25px; width: 220px;"><h6>Переглянути страви</h6></a>
+                      </div>
+          </div>
+     </div>
+    {% endfor %}
+</div>
+
+            <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                    {% endif %}
+                        <span class="current">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                        </span>
+                        {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">next</a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                        {% endif %}
+                </span>
+            </div>
+{% endblock content %}

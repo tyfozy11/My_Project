@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path, include
 from core import views
 from django.conf.urls.static import static
@@ -21,8 +22,13 @@ from django.conf import settings
 
 urlpatterns = [
                   path('admin/', admin.site.urls),
-                  path("profile/", views.ProfileView.as_view(), name='profile'),
-                  path("", views.IndexView.as_view(), name='home'),
-                  path("dishes/", views.DishView.as_view(), name='dishes'),
+                  path("profile/", views.ProfileView.as_view(template_name='profile.html'), name='profile'),
+                  path("", views.IndexView.as_view(template_name='home.html'), name='home'),
+                  path("registration/", views.RegistrationView.as_view(template_name='registration.html'), name='registration'),
+                  path("login/", LoginView.as_view(template_name='login.html'), name='login'),
+                  path("logout/", LogoutView.as_view(template_name='login.html'), name='logout'),
+                  path("dishes/", views.DishView.as_view(template_name='dishes.html'), name='dishes'),
+                  path("dishes_from/<int:category_id>/category/", views.DishFromCategoryView.as_view(template_name='dishes_from_category.html'), name='dishes_from_category'),
+                  path("categories/", views.FoodCategoriesView.as_view(template_name='categories.html'), name='categories'),
                   path('__debug__/', include('debug_toolbar.urls')),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
