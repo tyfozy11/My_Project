@@ -23,6 +23,8 @@ from django.conf import settings
 urlpatterns = [
                   path('admin/', admin.site.urls),
                   path("profile/", views.ProfileView.as_view(template_name='profile.html'), name='profile'),
+                  path("search/", views.SearchView.as_view(template_name='search.html'), name='search'),
+                  path("basket/", views.BasketView.as_view(template_name='basket.html'), name='basket'),
                   path("", views.IndexView.as_view(template_name='home.html'), name='home'),
                   path("registration/", views.RegistrationView.as_view(template_name='registration.html'), name='registration'),
                   path("login/", LoginView.as_view(template_name='login.html'), name='login'),

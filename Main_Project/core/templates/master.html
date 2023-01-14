@@ -26,18 +26,17 @@
                   </a>
                     <span class="navbar-brand " style="position: fixed; left: 800px;"><h2>{% block brand %}Головна{% endblock brand %}</h2></span>
                 </nav>
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <form class="form-inline my-2 my-lg-0"  style="position: fixed; right: 10px;" >
+                    <form class="form-inline my-2 my-lg-0"  style="position: fixed; right: 10px;"  action="{% url 'search' %}" method="get">
                       <input class="form-control mr-sm-2" type="search" placeholder="Search" name="q" aria-label="Search">
-                      <button class="btn btn-success my-2 my-sm-0" type="submit">Пошук по сайту</button>
+                      <button  class="btn btn-success my-2 my-sm-0" type="submit">Пошук по сайту</button>
                     </form>
-                  </div>
+
             </nav>
             <br>
             <nav class="nav flex-column" style="position: fixed; left: 10px; top: 120px; width: 200px; height: 600px;">
               <a class="btn btn-outline-success" style="margin-bottom: 15px;" href="{% url 'categories'%}"><h3> Категорії</h3></a>
               <a class="btn btn-outline-warning" style="margin-bottom: 15px;" href="{% url 'dishes'%}"><h3>Всі страви</h3></a>
-              <a class="btn btn-outline-info" style="margin-bottom: 15px;" href="#"><h3>Кошик</h3></a>
+              <a class="btn btn-outline-info" style="margin-bottom: 15px;" href="{% url 'basket'%}"><h3>Кошик</h3></a>
             </nav>
 
             <nav class="nav flex-column" style="position: fixed;right : 10px; top: 120px;  width: 200px; height: 600px;">

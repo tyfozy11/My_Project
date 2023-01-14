@@ -27,12 +27,12 @@ class DishView(ListView):
 
 class DishFromCategoryView(ListView):
     template_name = 'dishes_from_category.html'
-    model = FoodCategories
-    paginate_by = 10
+    model = Dish
+    paginate_by = 9
 
     def get_context_data(self, **kwargs):
         context = super(DishFromCategoryView, self).get_context_data(**kwargs)
-
+        context['categories'] = FoodCategories.objects.all()
         return context
 
 
@@ -40,6 +40,11 @@ class FoodCategoriesView(ListView):
     template_name = 'categories.html'
     model = FoodCategories
     paginate_by = 10
+
+    def get_context_data(self, **kwargs):
+        context = super(FoodCategoriesView, self).get_context_data(**kwargs)
+        context['dishes'] = Dish.objects.all()
+        return context
 
     def get_queryset(self):
         queryset = super(FoodCategoriesView, self).get_queryset()
@@ -57,7 +62,7 @@ class SearchView(IndexView):
                 Q(name__icontains=query) |
                 Q(description__icontains=query) |
                 Q(category__name__icontains=query)
-            ).order_by('price')
+            ).order_by('name')
 
         return super(SearchView, self).get_queryset()
 
@@ -76,3 +81,8 @@ class RegistrationView(FormView):
         )
         login(request=self.request, user=user)
         return super(RegistrationView, self).form_valid(form)
+
+
+class BasketView(FormView):
+    template_name = 'basket.html'
+    success_url = '.'

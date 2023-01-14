@@ -1,1 +1,15 @@
 {% extends 'master.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Search results</h2>
+        </div>
+    </div>
+    <div class="row">
+        {% include 'includes/card_dishes.html' with card_dishes=search_results %}
+    </div>
+    <div>
+        {% include 'includes/paginator.html' %}
+    </div>
+{% endblock content %}

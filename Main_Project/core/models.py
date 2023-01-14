@@ -29,3 +29,12 @@ class Dish(Name):
 
 class FoodCategories(Name):
     image = models.ImageField(blank=True, null=True, upload_to=dish_upload_path)
+
+
+class Basket(Name):
+    product = models.ManyToManyField("core.Dish")
+    sum_prices = models.DecimalField(max_digits=6, decimal_places=2)
+    profile = models.ForeignKey("core.CoreUser", on_delete=models.SET_NULL, null=True)
+    comment = models.TextField()
+
+

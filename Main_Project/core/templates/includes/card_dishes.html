@@ -1,0 +1,16 @@
+ {% for dish in object_list %}
+    <div class="col-md-4">
+        <div class="card" style="width: 340px; height: 470; margin-bottom: 10px; background-color: #221701ba;">
+            <img src="{{dish.image.url}}" width="340" height="250" style="max-width: 340px;"  class="card-img-top">
+                <div class="card-body" style="max-width: 400px; color: #f0e8ed;">
+                  <h5 class="card-title">{{ dish.name }} </h5>
+                  <p class="card-text">{{ dish.description }}</p>
+                </div>
+            <div class="card-footer" style="background-color: #343a40;">
+                <h5 class="text" style="color: #ffc107"> {{ dish.price }} грн.</h5>
+            </div>
+
+        </div>
+    </div>
+
+     {% endfor%}
