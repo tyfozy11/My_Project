@@ -8,7 +8,7 @@ class RegistrationForm(forms.ModelForm):
 
     class Meta:
         model = get_user_model()
-        fields = '__all__'
+        fields = ('username', 'first_name', 'last_name', 'phone', 'address', 'email')
 
     def clean_password_confirm(self):
         password = self.cleaned_data['password']
@@ -23,3 +23,9 @@ class RegistrationForm(forms.ModelForm):
         user.save()
 
         return user
+
+
+class EditUserForm(forms.ModelForm):
+    class Meta:
+        model = get_user_model()
+        fields = ('first_name', 'last_name', 'phone', 'address', 'email', 'username')

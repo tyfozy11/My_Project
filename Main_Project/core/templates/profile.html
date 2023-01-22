@@ -2,4 +2,57 @@
 {% load bootstrap4 %}
 {% block brand %}Профіль{% endblock %}
 {% block content %}
+<div class="container">
+    <br>
+    <table class="table" style="margin-top: 85px;  background-color: #c0d9cdcf">
+        <tr>
+            <td>Login</td>
+            <td>{{ user.username }}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>{{ user.email }}</td>
+        </tr>
+         <tr>
+            <td>Ім'я</td>
+            <td>{{ user.first_name }}</td>
+        </tr>
+         <tr>
+            <td>Прізвище</td>
+            <td>{{ user.last_name }}</td>
+        </tr>
+         <tr>
+            <td>Телефон</td>
+            <td>{{ user.phone }}</td>
+        </tr>
+         <tr>
+            <td>Адреса</td>
+            <td>{{ user.address }}</td>
+        </tr>
+    </table>
+    <p>
+          <button class="btn btn-dark btn-lg btn-block" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+           Історія замовлень
+          </button>
+    </p>
+        <div class="collapse"  id="collapseExample">
+              <div class="card card-body" style="background-color: #10d0e3;">
+                  <table>
+                <tr>
+                    <td>Orders</td>
+                    <td>Orders</td>
+                </tr>
+                    </table>
+              </div>
+        </div>
+        <td>
+            <br>
+               <td>
+            <br>
+              <a href="{% url 'edit_user' user_id=user.id%} " type="button" class="btn btn-success btn-lg btn-block">Змінити дані</a>
+
+            </td>
+        </td>
+</div>
+
 {% endblock content %}

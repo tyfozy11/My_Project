@@ -1,7 +1,7 @@
 {% extends 'master.html' %}
-{% block brand %}Страви{% endblock %}
+{% block brand %}Всі страви{% endblock %}
 {% block content %}
-    <div class="conteiner" style="margin-top: 60px; margin-bottom: 20px; ">
+    <div class="container" style="margin-top: 60px; margin-bottom: 20px; ">
         <div class="card-group">
                {% include 'includes/card_dishes.html' with card_dishes=search_results %}
         </div>

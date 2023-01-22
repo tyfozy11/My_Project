@@ -44,8 +44,8 @@
                 <a class="btn btn-outline-primary" style=" width: 160px; height: 50px; margin-bottom: 15px;" href="{% url 'profile' %}"><h3>Профіль</h3></a>
                 <a class="btn btn-outline-danger" style=" width: 160px; height: 50px; margin-bottom: 15px;" href="{% url 'logout' %}"><h3>Вийти</h3></a>
                 {% else %}
-                <a class="btn btn-outline-primary" style=" width: 160px; height: 50px; margin-bottom: 15px;" href="{% url 'login' %}">Увійти</a>
-                <a class="btn btn-outline-success" style=" width: 160px; height: 50px; margin-bottom: 15px;" href="{% url 'registration' %}">Зареєструватися</a>
+                <a class="btn btn-outline-primary" style=" width: 160px; height: 50px; margin-bottom: 15px;" href="{% url 'login' %}"><h3>Увійти</h3></a>
+                <a class="btn btn-outline-success" style=" width: 160px; height: 50px; margin-bottom: 15px;" href="{% url 'registration' %}"><h6>Зареєструватися</h6></a>
                 {% endif %}
             </nav>
 

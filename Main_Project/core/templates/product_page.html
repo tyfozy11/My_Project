@@ -1,0 +1,13 @@
+{% extends 'master.html' %}
+{% block content %}
+<div class="card mb-3">
+  <img src="{{dish.core_image.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{dish.name}}</h5>
+    <p class="card-text">{{dish.description}}</p>
+    <p class="card-text"><small class="text-muted"> {{ dish.price }} грн.</small></p>
+    <a class="badge badge-pill badge-success" href="{%% url 'basket'}"><h6>Додати до кошика</h6></a>
+  </div>
+
+</div>
+{% endblock content %}
