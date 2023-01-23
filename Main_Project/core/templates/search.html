@@ -1,0 +1,15 @@
+{% extends 'master.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <h1 style="color: #c0d9cdcf; margin-bottom: 15px; margin-top: 15px;">Search results</h1>
+        </div>
+    </div>
+    <div class="row">
+        {% include 'includes/card_dishes.html' with card_dishes=search_results %}
+    </div>
+    <div>
+        {% include 'includes/paginator.html' %}
+    </div>
+{% endblock content %}

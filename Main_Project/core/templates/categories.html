@@ -1,0 +1,23 @@
+{% extends 'master.html' %}
+{% block brand %}Категорії{% endblock %}
+{% block content %}
+<div class="card-deck" style="margin-top: 60px; margin-bottom: 20px; ">
+      {% for category in object_list %}
+     <div class="col-md-4">
+          <div class="card" style="margin-bottom: 15px; background-color:#48414394;">
+            <img src="{{category.image.url}}" width="320" height="200"  class="card-img-top">
+                <div class="card-body">
+                  <h3 class="card-title" style="color: #d5eee8;">{{category.name}}</h3>
+                </div>
+                      <div class="card-footer">
+                          <a  href="{% url 'dishes_from_category' category_id=category.id %}" class="badge badge-pill badge-success"  style="height: 25px; width: 220px;"><h6>Переглянути страви</h6></a>
+                      </div>
+          </div>
+     </div>
+    {% endfor %}
+</div>
+
+        <div>
+          {% include 'includes/paginator.html' %}
+        </div>
+{% endblock content %}

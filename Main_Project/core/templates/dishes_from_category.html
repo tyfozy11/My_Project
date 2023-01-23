@@ -1,0 +1,13 @@
+{% extends 'master.html' %}
+{% block brand %}Страви з категорії{% endblock %}
+ {% block content %}
+<div class="container" style="margin-top: 60px; margin-bottom: 20px; ">
+    <div class="card-group">
+           {% include 'includes/card_dishes.html' with card_dishes=search_results %}
+    </div>
+</div>
+    <div>
+        {% include 'includes/paginator.html' %}
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends 'master.html' %}
+{% load bootstrap4 %}
+
+{% block brand %}Аутентифікація{% endblock %}
+
+{% block content %}
+<div class="container" style="margin-top: 85px; background-color: #c0d9cdcf">
+    <br>
+ <form method="post">{% csrf_token%}
+     <table>
+     {% bootstrap_form form %}
+        <tr>
+            <td>
+            <br>
+               <button class="badge badge-pill badge-success"><h5>Увійти</h5></button>
+            </td>
+        </tr>
+     </table>
+ </form>
+</div>
+{% endblock content %}
