@@ -11,15 +11,6 @@ class IndexView(ListView):
     model = Dish
     template_name = 'home.html'
 
-    def get_context_data(self, *args, **kwargs):
-        context = super(IndexView, self).get_context_data(*args, **kwargs)
-        if 'refresh_count' not in self.request.session:
-            self.request.session['refresh_count'] = 0
-
-        self.request.session['refresh_count'] += 1
-        context['refresh_count'] = self.request.session['refresh_count']
-        return context
-
 
 class ProfileView(LoginRequiredMixin, TemplateView):
     template_name = 'profile.html'
@@ -33,13 +24,6 @@ class ProductDetailView(DetailView):
         queryset = super(ProductDetailView, self).get_queryset()
         queryset = Dish.objects.filter(id=self.kwargs['id'])
         return queryset
-
-    def get_context_data(self, **kwargs):
-        context = super(ProductDetailView, self).get_context_data()
-        context.update({
-            'images': Images.objects.filter(dish_id=self.kwargs['id'])
-        })
-        return context
 
 
 class DishView(ListView):
